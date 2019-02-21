@@ -6,12 +6,11 @@ Created on Tue Jan  8 11:51:47 2019
 word (probe first and target then) were semantic related or not.
 
 2: Slow event fMRI design, trial structure:
-    probe(2s), fix1(2s), target(2s,yes/no), fix2(6s).
+    probe(1.5s), fix1(1.5s), target(1.5s,yes/no,blank screen 1.5s), fix2(3s).
     
-3: 4 runs, each run with 45 trials
+3: 4 runs, each run with 48 trials
 
-4: conditions: Unrelated, Weak association, Medium association, Strong association. 
-    unr,60; wse,40; mse,40; sse,40.
+4: all word pairs have different word2vec value which reflects association strength.
     
 @author: zg750
 """
