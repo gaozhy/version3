@@ -67,7 +67,7 @@ yes_no_h = 62
 
 
 
-num_trials = 52 # total trial numbers of each run 
+num_trials = 48 # total trial numbers of each run 
 
 
 # presentation time of clue and probe
