@@ -307,9 +307,10 @@ def run_stimuli(stimuli_file):
     trigger_exp(curr_dic,'trigger.jpg')
     event.waitKeys(keyList=['5'], timeStamped=True)
     #  remind the subjects that experiment starts soon.
-    #ready()  
+    #ready() 
+     
     core.wait(9)  # 2 TRs
-    run_onset = win.flip() 
+    run_onset = win.flip()
     
     print ('run_onset',run_onset)
     
@@ -333,7 +334,7 @@ def run_stimuli(stimuli_file):
          # draw probe and filp the window
         probe.draw()
 
-        while core.monotonicClock.getTime() < (run_onset + trial_duration*(trial_pres_num-1) - (1/120.0)):
+        while core.monotonicClock.getTime() < (run_onset + trial_duration*(trial_pres_num-1)- (1/120.0)):
             pass       
         probe_onset = win.flip()
         
@@ -345,7 +346,7 @@ def run_stimuli(stimuli_file):
             fix.draw()
             
         timetodraw = probe_onset + probe_durat
-        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
+        while core.monotonicClock.getTime() < (timetodraw):
             pass
         fix1_onset = win.flip()
         
@@ -354,7 +355,7 @@ def run_stimuli(stimuli_file):
         #yes.draw()
         #no.draw()
         timetodraw = fix1_onset + fix1_durat
-        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
+        while core.monotonicClock.getTime() < (timetodraw):
             pass
         event.clearEvents()
         target_onset = win.flip()
@@ -364,7 +365,7 @@ def run_stimuli(stimuli_file):
         #yes.draw()
         #no.draw()
         time_after_targ=target_onset+target_durat
-        while core.monotonicClock.getTime()<(time_after_targ-1/120.0):
+        while core.monotonicClock.getTime()<(time_after_targ):
             pass
         after_targ=win.flip()
         
@@ -410,7 +411,7 @@ def run_stimuli(stimuli_file):
         
         fix2.draw()
         timetodraw = target_onset + timelimit_deci
-        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
+        while core.monotonicClock.getTime() < (timetodraw):
             pass
         fix2_onset = win.flip()                
                 

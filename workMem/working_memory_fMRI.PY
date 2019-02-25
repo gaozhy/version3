@@ -397,7 +397,7 @@ def run_stimuli(stimuli_file):
             fix=visual.Circle(win,units='pix',radius=20,fillColor=[0,0,0],lineColor=[0,0,0],pos=[-120+120*i,0])
             fix.draw()        
         timetodraw = probe_onset + probe_durat
-        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
+        while core.monotonicClock.getTime() < (timetodraw):
             pass
         fix1_onset = win.flip()
         
@@ -410,7 +410,7 @@ def run_stimuli(stimuli_file):
         #yes.draw()
         #no.draw()
         timetodraw = fix1_onset + fix1_durat
-        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
+        while core.monotonicClock.getTime() < (timetodraw):
             pass
         event.clearEvents()
         target_onset = win.flip()
@@ -420,7 +420,7 @@ def run_stimuli(stimuli_file):
         #yes.draw()
         #no.draw()
         time_after_targ=target_onset+target_durat
-        while core.monotonicClock.getTime()<(time_after_targ-1/120.0):
+        while core.monotonicClock.getTime()<(time_after_targ):
             pass
         after_targ=win.flip()
         
@@ -466,7 +466,7 @@ def run_stimuli(stimuli_file):
         
         fix2.draw()
         timetodraw = target_onset + timelimit_deci
-        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
+        while core.monotonicClock.getTime() < (timetodraw):
             pass
         fix2_onset = win.flip()          
                 
