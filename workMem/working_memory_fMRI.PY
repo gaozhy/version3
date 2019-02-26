@@ -331,7 +331,7 @@ def run_stimuli(stimuli_file):
     event.waitKeys(keyList=['5'], timeStamped=True)
     #  remind the subjects that experiment starts soon.
     #ready()  
-    core.wait(9)  # 2 TRs
+    core.wait(6)  # 2 TRs
     run_onset = win.flip() 
     
     print ('run_onset',run_onset)
