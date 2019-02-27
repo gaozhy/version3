@@ -328,11 +328,12 @@ def run_stimuli(stimuli_file):
     
     #trigger the scanner
     trigger_exp(curr_dic,'trigger.jpg')
-    event.waitKeys(keyList=['5'], timeStamped=True)
+    keys_trigger=event.waitKeys(keyList=['5'], timeStamped=True)
+    run_onset=keys_trigger[0][1]
     #  remind the subjects that experiment starts soon.
     #ready()  
-    core.wait(6)  # 2 TRs
-    run_onset = win.flip() 
+    core.wait(5.5)  # 2 TRs
+    win.flip() 
     
     print ('run_onset',run_onset)
     
@@ -385,8 +386,8 @@ def run_stimuli(stimuli_file):
         
          # draw probe and filp the window
         #probe.draw()
-
-        while core.monotonicClock.getTime() < (run_onset + trial_duration*(trial_pres_num-1) - (1/120.0)):
+        timetodraw=run_onset + 6 + trial_duration*(trial_pres_num-1)
+        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
             pass       
         probe_onset = win.flip()
         
@@ -397,7 +398,7 @@ def run_stimuli(stimuli_file):
             fix=visual.Circle(win,units='pix',radius=20,fillColor=[0,0,0],lineColor=[0,0,0],pos=[-120+120*i,0])
             fix.draw()        
         timetodraw = probe_onset + probe_durat
-        while core.monotonicClock.getTime() < (timetodraw):
+        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
             pass
         fix1_onset = win.flip()
         
@@ -410,7 +411,7 @@ def run_stimuli(stimuli_file):
         #yes.draw()
         #no.draw()
         timetodraw = fix1_onset + fix1_durat
-        while core.monotonicClock.getTime() < (timetodraw):
+        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
             pass
         event.clearEvents()
         target_onset = win.flip()
@@ -420,7 +421,7 @@ def run_stimuli(stimuli_file):
         #yes.draw()
         #no.draw()
         time_after_targ=target_onset+target_durat
-        while core.monotonicClock.getTime()<(time_after_targ):
+        while core.monotonicClock.getTime()<(time_after_targ - (1/120.0)):
             pass
         after_targ=win.flip()
         
@@ -466,7 +467,7 @@ def run_stimuli(stimuli_file):
         
         fix2.draw()
         timetodraw = target_onset + timelimit_deci
-        while core.monotonicClock.getTime() < (timetodraw):
+        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
             pass
         fix2_onset = win.flip()          
                 
