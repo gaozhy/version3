@@ -483,8 +483,9 @@ def run_stimuli(stimuli_file):
         #trial['correct'] = correct
         trial['KeyPress'] = keypress
         trial['Correct_Key']=Correctness
-        
-        if int(keypress)==int(Correctness):
+        if keypress=='None':
+            pass
+        elif int(keypress)==int(Correctness):
             corr_num +=1
         else:
             pass

@@ -350,7 +350,7 @@ def run_stimuli(stimuli_file):
             fix.draw()
             
         timetodraw = probe_onset + probe_durat
-        while core.monotonicClock.getTime() < (timetodraw):
+        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
             pass
         fix1_onset = win.flip()
         
@@ -359,7 +359,7 @@ def run_stimuli(stimuli_file):
         #yes.draw()
         #no.draw()
         timetodraw = fix1_onset + fix1_durat
-        while core.monotonicClock.getTime() < (timetodraw):
+        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
             pass
         event.clearEvents()
         target_onset = win.flip()
@@ -369,7 +369,7 @@ def run_stimuli(stimuli_file):
         #yes.draw()
         #no.draw()
         time_after_targ=target_onset+target_durat
-        while core.monotonicClock.getTime()<(time_after_targ):
+        while core.monotonicClock.getTime()<(time_after_targ - (1/120.0)):
             pass
         after_targ=win.flip()
         
@@ -415,7 +415,7 @@ def run_stimuli(stimuli_file):
         
         fix2.draw()
         timetodraw = target_onset + timelimit_deci
-        while core.monotonicClock.getTime() < (timetodraw):
+        while core.monotonicClock.getTime() < (timetodraw - (1/120.0)):
             pass
         fix2_onset = win.flip()                
                 
